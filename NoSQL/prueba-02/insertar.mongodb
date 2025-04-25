@@ -1,0 +1,23 @@
+
+// No importa si la base de datos no existe, puede crearla en automatico:
+use("my_store")
+
+// Insertando una colección:
+/*
+db.products.insertOne({
+    name: "Sabritas",
+    price: 25.5
+})
+
+db.products.insertOne({
+    name: "Coca-cola",
+    price: 34.5
+})
+*/
+
+db.products.insertOne({
+    _id: 1,
+    name: "Emperador",
+    price: 19.5
+})
+

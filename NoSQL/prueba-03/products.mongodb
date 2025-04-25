@@ -1,0 +1,35 @@
+use("my_store")
+
+// Primero borramos todos los productos que tenga:
+db.products.drop()
+
+db.products.insertMany([
+    {
+        _id: 1,
+        name: "Rancheritos",
+        price: 17.5
+    },
+    {
+        _id: 2,
+        name: "Jumex",
+        price: 19.5
+    },
+    {
+        _id: 1,
+        name: "Carlos V",
+        price: 14.5
+    },
+    {
+        _id: 4,
+        name: "Panditas",
+        price: 14.5
+    }
+],{
+    ordered: false
+})
+
+db.products.find()
+
+// Probar con id duplicados
+// Probar con id 4 duplicando el 1
+// Probar primero sin ordered   

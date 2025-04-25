@@ -1,0 +1,49 @@
+use("sample_mflix")
+
+// Primero ejecutar sin el count
+// db.movies.find({directors:"D.W. Griffith"}).count()
+
+// Si deseas encontrar todos los comentarios relacionados con una película
+// (utilizando el movie_id), puedes hacer una consulta como esta:
+// db.comments.find({ "movie_id": ObjectId("573a1390f29313caabcd4323") })
+
+// Si buscas comentarios de un usuario con un nombre determinado, puedes hacer lo siguiente:
+// db.comments.find({ "name": "Mercedes Tyler" })
+
+// Si deseas encontrar comentarios hechos después de una fecha específica 
+// (por ejemplo, después del 1 de enero de 2000), puedes utilizar la siguiente consulta:
+// db.comments.find({ "date": { "$gt": ISODate("2000-01-01T00:00:00Z") } })
+
+// Si quieres saber el número total de comentarios en la colección:
+// db.comments.countDocuments()
+
+// Si estás buscando comentarios que contengan una palabra específica 
+// (por ejemplo, "provident"):
+// db.comments.find({ "text": { "$regex": "provident", "$options": "i" } })
+
+// Para obtener los comentarios más recientes, puedes ordenar por la fecha en orden descendente:
+// db.comments.find().sort({ "date": -1 }).limit(5)
+
+// Si deseas encontrar comentarios largos que contengan más de 100 caracteres:
+// db.comments.find({ "text": { "$regex": "^.{100,}$" } })
+
+
+// Si necesitas actualizar un campo en un comentario, por ejemplo, cambiar el correo 
+// electrónico de un usuario específico, puedes hacer lo siguiente:
+
+/*
+db.comments.updateOne(
+    { "_id": ObjectId("5a9427648b0beebeb69579e7") },
+    { "$set": { "email": "nuevo_correo@gmail.com" } }
+)
+*/
+
+// Si deseas eliminar un comentario utilizando su identificador:
+// db.comments.deleteOne({ "_id": ObjectId("5a9427648b0beebeb69579e7") })
+
+// Si deseas saber cuántos comentarios hay para cada película
+/*
+db.comments.aggregate([
+    { "$group": { "_id": "$movie_id", "total_comments": { "$sum": 1 } } }
+  ])
+*/

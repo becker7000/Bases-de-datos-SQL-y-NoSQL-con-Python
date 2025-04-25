@@ -1,0 +1,16 @@
+use("my_store")
+
+// Usando change operators:
+// $set ajusta el valor de campo especificado
+db.products.updateOne(
+    {_id: 4}, 
+    {
+        $set: {
+            name: 'Ruffles',
+            price: 23.5
+        }
+    }
+);
+
+// Primero probar con un solo campo
+// Luego probar con 2 campos

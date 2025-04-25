@@ -1,0 +1,4 @@
+use("my_store")
+
+// Obtener todos los productos:
+db.products.find()
